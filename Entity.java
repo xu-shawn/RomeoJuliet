@@ -112,9 +112,13 @@ public class Entity
         health -= amount;
     }
 
-    public void die(Entity receiver)
+    public void die(Playable receiver)
     {
         this.inventory.forEach((n) -> receiver.addToInventory(n));
+        if(receiver.getLocation().getEntities().contains(this))
+            {
+                receiver.getLocation().getEntities().remove(receiver.getLocation().getEntities().indexOf(this));
+            }
     }
 
     public int getAttackDamage() {

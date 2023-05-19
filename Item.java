@@ -1,9 +1,11 @@
 public class Item
 {
     private String description;
+    //    private Entity owner;
 
-    public Item(String description)
+    public Item(String description/*, Entity owner*/)
     {
+        //    this.owner = owner;
         this.description = description;
     }
 
@@ -16,4 +18,14 @@ public class Item
     {
         this.description = description;
     }
+
+    // public Entity getOwner()
+    // {
+    //     return owner;
+    // }
+
+    // public void setOwner(Entity owner)
+    // {
+    //     this.owner = owner;
+    // }
 }

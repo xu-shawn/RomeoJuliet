@@ -41,7 +41,7 @@ public class Playable extends Entity
         boolean playerTurn = true, defenseReady = false;
         while(getHealth() > 0 && enemy.getHealth() > 0)
         {
-            if(playerTurn == true)
+            if(playerTurn)
                 {
                     GameIO.say("\n" + toString() + "\n\n" + enemy.toString() + "\n\n");
                     defenseReady = false;

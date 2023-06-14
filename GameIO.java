@@ -22,7 +22,7 @@ public class GameIO
     {
         say("What would you like to do?\n");
         System.out.println("1. Go north\n2. Go south\n3. Go east\n4. Go west");
-        System.out.print("5. Dig down\n6. Use/Equip items\n7. Fight\n8. Quit\n> ");
+        System.out.print("5. Dig\n6. Use/Equip items\n7. Fight\n8. Quit\n> ");
         int action;
         try
             {

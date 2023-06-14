@@ -6,9 +6,10 @@ public class Room
     private String description;
     private String shortDescription;
     private ArrayList<Item> treasure = new ArrayList<Item>();
+    private boolean fightAllEnemies = false;
     ArrayList<Entity> entities = new ArrayList<Entity>();
 
-    public Room(Room north, Room south, Room east, Room west, String shortDescription, String description, Entity... entity)
+    public Room(Room north, Room south, Room east, Room west, boolean fightAllEnemies, String shortDescription, String description, Entity... entity)
     {
             this.shortDescription = shortDescription;
             this.north = north;
@@ -16,10 +17,21 @@ public class Room
             this.east = east;
             this.west = west;
             this.description = description;
+            this.fightAllEnemies = fightAllEnemies;
             for(Entity e : entity)
                 {
                     entities.add(e);
                 }
+    }
+
+    public boolean isFightAllEnemies()
+    {
+        return fightAllEnemies;
+    }
+
+    public void setFightAllEnemies(boolean fightAllEnemies)
+    {
+        this.fightAllEnemies = fightAllEnemies;
     }
 
     public void setDescription(String description)
@@ -108,6 +120,16 @@ public class Room
     public void setShortDescription(String shortDescription)
     {
         this.shortDescription = shortDescription;
+    }
+
+    public void playerArrive(Playable p)
+    {
+        if(fightAllEnemies)
+        {
+            entities.forEach((x) -> {
+                p.combat(x);
+            });
+        }
     }
 
     public String toString()
